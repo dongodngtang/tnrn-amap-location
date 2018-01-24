@@ -19,9 +19,12 @@
 
 @implementation RCTAMapLocation
 
-@synthesize bridge = _bridge;
-
 RCT_EXPORT_MODULE(AMapLocation);
+
+- (NSArray<NSString *> *)supportedEvents
+{
+    return @[@"amap.location.onLocationResult"];
+}
 
 RCT_EXPORT_METHOD(init:(NSDictionary *)options)
 {
@@ -35,6 +38,7 @@ RCT_EXPORT_METHOD(init:(NSDictionary *)options)
     
     [self setOptions:options];
     
+    __weak RCTAMapLocation * weakSelf = self;
     self.completionBlock = ^(CLLocation *location, AMapLocationReGeocode *regeocode, NSError *error)
     {
         NSDictionary *resultDic;
@@ -45,8 +49,7 @@ RCT_EXPORT_METHOD(init:(NSDictionary *)options)
         else {
             resultDic = [self setSuccessResult:location regeocode:regeocode];
         }
-        [self.bridge.eventDispatcher sendAppEventWithName:@"amap.location.onLocationResult"
-                                                     body:resultDic];
+        [weakSelf sendEventWithName:@"amap.location.onLocationResult" body:resultDic];
     };
 }
 
@@ -216,8 +219,7 @@ RCT_EXPORT_METHOD(stopUpdatingLocation)
     
     resultDic = [self setErrorResult:error];
     
-    [self.bridge.eventDispatcher sendAppEventWithName:@"amap.location.onLocationResult"
-                                                 body:resultDic];
+    [self sendEventWithName:@"amap.location.onLocationResult" body:resultDic];
 }
 
 - (void)amapLocationManager:(AMapLocationManager *)manager didUpdateLocation:(CLLocation *)location reGeocode:(AMapLocationReGeocode *)regeocode
@@ -228,8 +230,7 @@ RCT_EXPORT_METHOD(stopUpdatingLocation)
     
     resultDic = [self setSuccessResult:location regeocode:regeocode];
     
-    [self.bridge.eventDispatcher sendAppEventWithName:@"amap.location.onLocationResult"
-                                                 body:resultDic];
+    [self sendEventWithName:@"amap.location.onLocationResult" body:resultDic];
 
 }
 

@@ -1,9 +1,9 @@
-# react-native-smart-amap-location
+# rnkit-amap-location
 
-[![npm](https://img.shields.io/npm/v/react-native-smart-amap-location.svg)](https://www.npmjs.com/package/react-native-smart-amap-location)
-[![npm](https://img.shields.io/npm/dm/react-native-smart-amap-location.svg)](https://www.npmjs.com/package/react-native-smart-amap-location)
-[![npm](https://img.shields.io/npm/dt/react-native-smart-amap-location.svg)](https://www.npmjs.com/package/react-native-smart-amap-location)
-[![npm](https://img.shields.io/npm/l/react-native-smart-amap-location.svg)](https://github.com/react-native-component/react-native-smart-amap-location/blob/master/LICENSE)
+[![npm](https://img.shields.io/npm/v/rnkit-amap-location.svg)](https://www.npmjs.com/package/rnkit-amap-location)
+[![npm](https://img.shields.io/npm/dm/rnkit-amap-location.svg)](https://www.npmjs.com/package/rnkit-amap-location)
+[![npm](https://img.shields.io/npm/dt/rnkit-amap-location.svg)](https://www.npmjs.com/package/rnkit-amap-location)
+[![npm](https://img.shields.io/npm/l/rnkit-amap-location.svg)](https://github.com/react-native-component/react-native-smart-amap-location/blob/master/LICENSE)
 
 react-native 高德地图-定位SDK 插件, 支持ios与android,
 关于使用高德地图SDK, 申请应用key等详细信息请点击[这里][1]
@@ -199,11 +199,18 @@ import {
     ActivityIndicator,
     ActivityIndicatorIOS,
     ProgressBarAndroid,
+    NativeEventEmitter,
 } from 'react-native'
 
-import AMapLocation from 'react-native-smart-amap-location'
+import AMapLocation from 'rnkit-amap-location'
 import Button from 'react-native-smart-button'
 import AppEventListenerEnhance from 'react-native-smart-app-event-listener-enhance'
+
+const listener = new NativeEventEmitter(NativeModules.AMapLocation)
+
+listener.addListener('amap.location.onLocationResult', async (result) => {
+    //result
+})
 
 class AMapLocationDemo extends Component {
 
