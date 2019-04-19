@@ -1,9 +1,9 @@
-# rnkit-amap-location
+# tnrn-amap-location
 
-[![npm](https://img.shields.io/npm/v/rnkit-amap-location.svg)](https://www.npmjs.com/package/rnkit-amap-location)
-[![npm](https://img.shields.io/npm/dm/rnkit-amap-location.svg)](https://www.npmjs.com/package/rnkit-amap-location)
-[![npm](https://img.shields.io/npm/dt/rnkit-amap-location.svg)](https://www.npmjs.com/package/rnkit-amap-location)
-[![npm](https://img.shields.io/npm/l/rnkit-amap-location.svg)](https://github.com/react-native-component/react-native-smart-amap-location/blob/master/LICENSE)
+[![npm](https://img.shields.io/npm/v/tnrn-amap-location.svg)](https://www.npmjs.com/package/tnrn-amap-location)
+[![npm](https://img.shields.io/npm/dm/tnrn-amap-location.svg)](https://www.npmjs.com/package/tnrn-amap-location)
+[![npm](https://img.shields.io/npm/dt/tnrn-amap-location.svg)](https://www.npmjs.com/package/tnrn-amap-location)
+[![npm](https://img.shields.io/npm/l/tnrn-amap-location.svg)](https://github.com/tnrn/tnrn-amap-location/blob/master/LICENSE)
 
 react-native 高德地图-定位SDK 插件, 支持ios与android,
 关于使用高德地图SDK, 申请应用key等详细信息请点击[这里][1]
@@ -12,17 +12,13 @@ Mac下Android Studio中获取SHA1和MD5请点击[这里][3]
 
 ## 预览
 
-![react-native-smart-amap-location-preview-ios][2]
+![tnrn-amap-location-preview-ios][2]
 
 ## 安装
 
 ```
-npm install react-native-smart-amap-location --save
+npm install tnrn-amap-location --save
 ```
-
-## Notice
-
-这个版本仅支持react-native 0.40及以上, 如果你想使用旧的版本，使用`npm install react-native-smart-amap-location@untilRN0.40 --save`
 
 
 ## 安装 (iOS)
@@ -82,8 +78,8 @@ npm install react-native-smart-amap-location --save
 
 ```
 ...
-include ':react-native-smart-amap-location'
-project(':react-native-smart-amap-location').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-smart-amap-location/android')
+include ':tnrn-amap-location'
+project(':tnrn-amap-location').projectDir = new File(rootProject.projectDir, '../node_modules/tnrn-amap-location/android')
 ```
 
 * 在`android/app/build.gradle`中
@@ -93,7 +89,7 @@ project(':react-native-smart-amap-location').projectDir = new File(rootProject.p
 dependencies {
     ...
     // From node_modules
-    compile project(':react-native-smart-amap-location')
+    compile project(':tnrn-amap-location')
 }
 ```
 
@@ -183,8 +179,8 @@ protected List<ReactPackage> getPackages() {
 
 ## 使用简介
 
-Install the package from npm with `npm install react-native-smart-amap-location --save`.
-Then, require it from your app's JavaScript files with `import Barcode from 'react-native-smart-amap-location'`.
+Install the package from npm with `npm install tnrn-amap-location --save`.
+Then, require it from your app's JavaScript files with `import Barcode from 'tnrn-amap-location'`.
 
 ```js
 import React, {
@@ -202,7 +198,7 @@ import {
     NativeEventEmitter,
 } from 'react-native'
 
-import AMapLocation from 'rnkit-amap-location'
+import AMapLocation from 'tnrn-amap-location'
 import Button from 'react-native-smart-button'
 import AppEventListenerEnhance from 'react-native-smart-app-event-listener-enhance'
 
@@ -384,7 +380,7 @@ export default AppEventListenerEnhance(AMapLocationDemo)
 
 [0]: https://github.com/cyqresig/ReactNativeComponentDemos
 [1]: http://lbs.amap.com/api/
-[2]: http://cyqresig.github.io/img/react-native-smart-amap-location-preview-ios-v1.0.0.gif
+[2]: http://cyqresig.github.io/img/tnrn-amap-location-preview-ios-v1.0.0.gif
 [3]: http://blog.csdn.net/jackymvc/article/details/50222503
 
 

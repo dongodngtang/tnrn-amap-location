@@ -1,6 +1,6 @@
 {
-  "name": "rnkit-amap-location",
-  "version": "1.0.1",
+  "name": "tnrn-amap-location",
+  "version": "0.0.1",
   "description": "A AMap location Library for React Native apps.",
   "main": "AMapLocation.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rnkit/rnkit-amap-location.git"
+    "url": "git+https://github.com/tnrn/tnrn-amap-location.git"
   },
   "keywords": [
     "react-native",
@@ -19,7 +19,7 @@
   "author": "SimMan",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rnkit/rnkit-amap-location/issues"
+    "url": "https://github.com/tnrn/tnrn-amap-location/issues"
   },
-  "homepage": "https://github.com/rnkit/rnkit-amap-location#readme"
+  "homepage": "https://github.com/tnrn/tnrn-amap-location#readme"
 }
