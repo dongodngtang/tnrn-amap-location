@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C8396A9F2269BE0B00230087 /* RCTAMapLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = C8396A9E2269BE0B00230087 /* RCTAMapLocation.m */; };
-		C8396AA02269BE0B00230087 /* RCTAMapLocation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C8396A9D2269BE0B00230087 /* RCTAMapLocation.h */; };
+		C8396AAE2269BE6C00230087 /* RCTAMapLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = C8396AAB2269BE6C00230087 /* RCTAMapLocation.m */; };
+		C8DE32882269C226001493C2 /* AMapLocationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8DE32862269C226001493C2 /* AMapLocationKit.framework */; };
+		C8DE32892269C226001493C2 /* AMapFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8DE32872269C226001493C2 /* AMapFoundationKit.framework */; };
+		C8DE32902269C252001493C2 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8DE328F2269C252001493C2 /* ExternalAccessory.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -18,7 +20,6 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				C8396AA02269BE0B00230087 /* RCTAMapLocation.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -26,8 +27,12 @@
 
 /* Begin PBXFileReference section */
 		C8396A9A2269BE0B00230087 /* libRCTAMapLocation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRCTAMapLocation.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		C8396A9D2269BE0B00230087 /* RCTAMapLocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTAMapLocation.h; sourceTree = "<group>"; };
-		C8396A9E2269BE0B00230087 /* RCTAMapLocation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTAMapLocation.m; sourceTree = "<group>"; };
+		C8396AAB2269BE6C00230087 /* RCTAMapLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTAMapLocation.m; sourceTree = "<group>"; };
+		C8DE32862269C226001493C2 /* AMapLocationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapLocationKit.framework; sourceTree = "<group>"; };
+		C8DE32872269C226001493C2 /* AMapFoundationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapFoundationKit.framework; sourceTree = "<group>"; };
+		C8DE328B2269C236001493C2 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		C8DE328D2269C242001493C2 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		C8DE328F2269C252001493C2 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +40,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8DE32902269C252001493C2 /* ExternalAccessory.framework in Frameworks */,
+				C8DE32882269C226001493C2 /* AMapLocationKit.framework in Frameworks */,
+				C8DE32892269C226001493C2 /* AMapFoundationKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,8 +52,10 @@
 		C8396A912269BE0B00230087 = {
 			isa = PBXGroup;
 			children = (
-				C8396A9C2269BE0B00230087 /* RCTAMapLocation */,
+				C8DE32852269C226001493C2 /* Framework */,
+				C8396AA92269BE6C00230087 /* RCTAMapLocation */,
 				C8396A9B2269BE0B00230087 /* Products */,
+				C8DE328A2269C236001493C2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,13 +67,31 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C8396A9C2269BE0B00230087 /* RCTAMapLocation */ = {
+		C8396AA92269BE6C00230087 /* RCTAMapLocation */ = {
 			isa = PBXGroup;
 			children = (
-				C8396A9D2269BE0B00230087 /* RCTAMapLocation.h */,
-				C8396A9E2269BE0B00230087 /* RCTAMapLocation.m */,
+				C8396AAB2269BE6C00230087 /* RCTAMapLocation.m */,
 			);
 			path = RCTAMapLocation;
+			sourceTree = "<group>";
+		};
+		C8DE32852269C226001493C2 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				C8DE32862269C226001493C2 /* AMapLocationKit.framework */,
+				C8DE32872269C226001493C2 /* AMapFoundationKit.framework */,
+			);
+			path = Framework;
+			sourceTree = "<group>";
+		};
+		C8DE328A2269C236001493C2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C8DE328F2269C252001493C2 /* ExternalAccessory.framework */,
+				C8DE328D2269C242001493C2 /* libc++.tbd */,
+				C8DE328B2269C236001493C2 /* libz.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,7 +150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8396A9F2269BE0B00230087 /* RCTAMapLocation.m in Sources */,
+				C8396AAE2269BE6C00230087 /* RCTAMapLocation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +273,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Framework",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -256,6 +288,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Framework",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
