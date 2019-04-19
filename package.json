@@ -2,7 +2,7 @@
   "name": "tnrn-amap-location",
   "version": "0.0.1",
   "description": "A AMap location Library for React Native apps.",
-  "main": "AMapLocation.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
