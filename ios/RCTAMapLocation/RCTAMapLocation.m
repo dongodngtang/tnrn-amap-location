@@ -28,7 +28,18 @@ RCT_REMAP_METHOD(init, key:(NSString *)key resolver:(RCTPromiseResolveBlock)reso
     [AMapServices sharedServices].apiKey = key;
     if (!_manager) {
         _manager = [AMapLocationManager new];
-        _manager.delegate = self;
+        
+        //设置期望定位精度
+        [_manager setDesiredAccuracy:kCLLocationAccuracyHundredMeters];
+        
+        //设置不允许系统暂停定位
+        [_manager setPausesLocationUpdatesAutomatically:NO];
+        
+        //设置定位超时时间
+        [_manager setLocationTimeout:10];
+        
+        //设置逆地理超时时间
+        [_manager setReGeocodeTimeout:10];
         resolve(nil);
     } else {
         resolve(nil);
@@ -36,11 +47,20 @@ RCT_REMAP_METHOD(init, key:(NSString *)key resolver:(RCTPromiseResolveBlock)reso
 }
 
 RCT_EXPORT_METHOD(start) {
-    [_manager startUpdatingLocation];
+    [_manager requestLocationWithReGeocode:YES completionBlock:^(CLLocation *location, AMapLocationReGeocode *regeocode, NSError *error) {
+        [self didUpdateLocation:location reGeocode:regeocode error:error];
+    }];
 }
 
 RCT_EXPORT_METHOD(stop) {
     [_manager stopUpdatingLocation];
+}
+
+RCT_EXPORT_METHOD(cleanUp){
+    // 停止定位
+    [_manager stopUpdatingLocation];
+    [_manager setDelegate:nil];
+    _manager = nil;
 }
 
 RCT_REMAP_METHOD(getLastLocation, resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
@@ -82,13 +102,25 @@ RCT_REMAP_METHOD(getLastLocation, resolver:(RCTPromiseResolveBlock)resolve rejec
     }
 }
 
-- (void)amapLocationManager:(AMapLocationManager *)manager
-          didUpdateLocation:(CLLocation *)location
-                  reGeocode:(AMapLocationReGeocode *)reGeocode {
-    id json = [self json:location reGeocode:reGeocode];
-    [self sendEventWithName:@"AMapGeolocation" body: json];
-    [NSUserDefaults.standardUserDefaults setObject:json forKey:RCTLocationModule.storeKey];
-    [NSUserDefaults.standardUserDefaults synchronize];
+- (void)didUpdateLocation:(CLLocation *)location
+                reGeocode:(AMapLocationReGeocode *)reGeocode
+                    error:(NSError *)error {
+    if (error) {
+        if (error.code == AMapLocationErrorLocateFailed) {
+            [self sendEventWithName:@"AMapGeolocation" body: @"error"];
+            return;
+        }
+    }
+    
+    if (reGeocode) {
+        id json = [self json:location reGeocode:reGeocode];
+        [self sendEventWithName:@"AMapGeolocation" body: json];
+        [NSUserDefaults.standardUserDefaults setObject:json forKey:RCTLocationModule.storeKey];
+        [NSUserDefaults.standardUserDefaults synchronize];
+    }
+    else {
+        [self sendEventWithName:@"AMapGeolocation" body: @"none"];
+    }
 }
 
 - (NSArray<NSString *> *)supportedEvents {
@@ -100,4 +132,3 @@ RCT_REMAP_METHOD(getLastLocation, resolver:(RCTPromiseResolveBlock)resolve rejec
 }
 
 @end
-
