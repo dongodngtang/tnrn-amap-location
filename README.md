@@ -40,3 +40,9 @@ if (granted === PermissionsAndroid.RESULTS.GRANTED) {
   Geolocation.start()
 }
 ```
+
+### 最后：
+
+由于 [react-native-amap-geolocation](https://github.com/qiuxiang/react-native-amap-geolocation) 有些在使用上面的问题，因此 fork 了这份代码
+
+[issue：iOS 定位多次回调](https://github.com/qiuxiang/react-native-amap-geolocation/issues/52)
