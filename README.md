@@ -13,6 +13,12 @@
 	yarn add tnrn-amap-location
 	```
 	
+	iOS 需要这样设置：
+	
+	`Build Setting` -> `Framework Search Paths` 中添加 `$(SRCROOT)/../node_modules/tnrn-amap-location/ios/Framework`
+	
+	`Build Phases` -> `Link Binary WithLibraries` 中添加 `ExternalAccessory.framework`
+	
 2.  获取 Key：
     * [Android](http://lbs.amap.com/api/android-location-sdk/guide/create-project/get-key)
     * [iOS](http://lbs.amap.com/api/ios-location-sdk/guide/create-project/get-key)
