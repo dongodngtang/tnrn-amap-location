@@ -64,6 +64,11 @@ public class AMapGeolocationModule extends ReactContextBaseJavaModule implements
     }
 
     @ReactMethod
+    public void startSingle() {
+        locationClient.startLocation();
+    }
+    
+    @ReactMethod
     public void start() {
         locationClient.startLocation();
     }

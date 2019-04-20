@@ -2,7 +2,7 @@ import { EventSubscription } from "react-native";
 
 export interface Options {
   /**
-   *  是否返回地址信息，默认 false
+   *  是否返回地址信息，默认 true
    */
   reGeocode: boolean;
 
@@ -46,12 +46,15 @@ export interface Location {
 interface IGeolocation {
   init: (params: { ios: string; android: string }) => Promise<void>;
   setOptions: (options: Options) => void;
+  // 单次定位
+  startSingle: () => void;
+  // 持续定位
   start: () => void;
+  // 停止持续定位
   stop: () => void;
-  addLocationListener: (
-    func: (location: Location) => void
-  ) => EventSubscription;
   getLastLocation: () => Promise<Location>;
+  addListener: (func: (location: Location) => void) => EventSubscription;
+  removeListener: () => void;
 }
 
 export const Geolocation: IGeolocation;
