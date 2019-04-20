@@ -1,6 +1,6 @@
 {
   "name": "tnrn-amap-location",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A AMap location Library for React Native apps.",
   "main": "index.js",
   "scripts": {
@@ -16,7 +16,7 @@
     "amap",
     "component"
   ],
-  "author": "SimMan",
+  "author": "winter",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/tnrn/tnrn-amap-location/issues"
