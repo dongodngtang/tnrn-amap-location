@@ -54,7 +54,7 @@ interface IGeolocation {
   stop: () => void;
   getLastLocation: () => Promise<Location>;
   addListener: (func: (location: Location) => void) => EventSubscription;
-  removeListener: () => void;
+  removeAllListener: () => void;
 }
 
 export const Geolocation: IGeolocation;
