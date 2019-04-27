@@ -13,12 +13,12 @@ import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 
-public class AMapGeolocationModule extends ReactContextBaseJavaModule implements AMapLocationListener {
+public class RCTAMapLocationModule extends ReactContextBaseJavaModule implements AMapLocationListener {
     private final ReactApplicationContext reactContext;
     private DeviceEventManagerModule.RCTDeviceEventEmitter eventEmitter;
     private static AMapLocationClient locationClient;
 
-    AMapGeolocationModule(ReactApplicationContext reactContext) {
+    public RCTAMapLocationModule(ReactApplicationContext reactContext) {
         super(reactContext);
         this.reactContext = reactContext;
     }

@@ -1,4 +1,4 @@
-package com.reactnativecomponent.amaplocation;
+package com.reactnative.amaplocation;
 
 
 import com.facebook.react.ReactPackage;
@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class AMapGeolocationPackage implements ReactPackage {
+public class RCTAMapLocationPackage implements ReactPackage {
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
         return Collections.emptyList();
@@ -18,6 +18,6 @@ public class AMapGeolocationPackage implements ReactPackage {
 
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
-        return Arrays.<NativeModule>asList(new AMapGeolocationModule(reactContext));
+        return Arrays.<NativeModule>asList(new RCTAMapLocationModule(reactContext));
     }
 }
