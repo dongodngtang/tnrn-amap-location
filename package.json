@@ -1,6 +1,6 @@
 {
   "name": "tnrn-amap-location",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A AMap location Library for React Native apps.",
   "main": "index.js",
   "scripts": {
