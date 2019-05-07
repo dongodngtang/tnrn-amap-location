@@ -31,7 +31,7 @@ public class RCTAMapLocationModule extends ReactContextBaseJavaModule implements
     @Override
     public void onLocationChanged(AMapLocation location) {
         if (location != null) {
-            if (location.getErrorCode() == 0) {
+            if (location.getErrorCode() == 0 && eventEmitter != null) {
                 eventEmitter.emit("AMapGeolocation", toReadableMap(location));
             }
             // TODO: 返回定位错误信息
@@ -84,8 +84,8 @@ public class RCTAMapLocationModule extends ReactContextBaseJavaModule implements
     }
 
     private ReadableMap toReadableMap(AMapLocation location) {
+        WritableMap map = Arguments.createMap();
         if (location != null) {
-            WritableMap map = Arguments.createMap();
             map.putDouble("timestamp", location.getTime());
             map.putDouble("accuracy", location.getAccuracy());
             map.putDouble("latitude", location.getLatitude());
@@ -105,8 +105,7 @@ public class RCTAMapLocationModule extends ReactContextBaseJavaModule implements
                 map.putString("streetNumber", location.getStreetNum());
                 map.putString("adCode", location.getAdCode());
             }
-            return map;
         }
-        return null;
+        return map;
     }
 }
