@@ -60,6 +60,11 @@ public class RCTAMapLocationModule extends ReactContextBaseJavaModule implements
         if (options.hasKey("reGeocode")) {
             option.setNeedAddress(options.getBoolean("reGeocode"));
         }
+
+        if (options.hasKey("once")) {
+            option.setOnceLocation(options.getBoolean("once"));
+        }
+
         locationClient.setLocationOption(option);
     }
 
